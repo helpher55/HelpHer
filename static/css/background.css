@@ -1,0 +1,23 @@
+.backgroundPink{
+	background: rgba(0,146,68,1);
+	background: -moz-linear-gradient(75deg, rgba(250, 250, 250,1) 0%, rgba(238, 110, 115, 0.5) 100%);
+	background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(250, 250, 250,1)), color-stop(100%, rgba(238, 110, 115, 0.5)));
+	background: -webkit-linear-gradient(75deg, rgba(250, 250, 250,1) 0%, rgba(238, 110, 115, 0.5)rgba(0,62,123,1) 100%);
+	background: -o-linear-gradient(75deg, rgba(250, 250, 250,1) 0%, rgba(238, 110, 115, 0.5) 100%);
+	background: -ms-linear-gradient(75deg, rgba(250, 250, 250,1) 0%, rgba(238, 110, 115, 0.5) 100%);
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009244', endColorstr='#003e7b', GradientType=1 );*/
+	background: linear-gradient(75deg, rgba(250, 250, 250,1) 0%, rgba(238, 110, 115, 0.5) 100%);
+    background-image: linear-gradient(76deg, rgb(250, 250, 250) 0%, rgba(238, 110, 115, 0.5) 100%);
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;	
+    
+    min-height: 100vh;
+    overflow: auto;
+}

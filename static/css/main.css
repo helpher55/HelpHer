@@ -1,0 +1,14 @@
+@import url("background.css");
+@import url("navbar.css");
+
+
+body{
+	color: #ffffff;
+	height: 100%;
+}
+a{
+	color: #ffffff;
+}
+a:hover{
+	color: #cccccc;
+}
