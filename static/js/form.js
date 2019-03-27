@@ -12,6 +12,7 @@ function saveForm() {
 					+ "&fbtoken=" + fbtoken;
 	
 	$.post(url, {}, function(response) {
+		var itemid = response;
 		listForm();
 	});
 }
