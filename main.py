@@ -1,15 +1,18 @@
 from flask import Flask, Response, request, render_template
 import pymongo
+import json, datetime
+from bson.json_util import dumps
 
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
-dburi = "mongodb+srv://admin:adminhelpher@cluster0-9jh3u.mongodb.net/test?retryWrites=true"
 
 @app.route('/')
 def main():
 	return render_template('index.html')
-	
+
+
+dburi = "mongodb+srv://admin:adminhelpher@cluster0-9jh3u.mongodb.net/test?retryWrites=true"	
 	
 @app.route('/saveForm', methods=['POST'])
 def saveForm():
@@ -21,9 +24,10 @@ def saveForm():
 	client = pymongo.MongoClient(dburi)
 	db = client.test	
 	assistsocial = db.assistsocial
-	assistsocial.insert_one({ "abuso": abuso, 
+	assistsocial.insert_one({"abuso": abuso, 
 						"quantasvezes": quantasvezes, 
-						"descricao": descricao})
+						"descricao": descricao,
+						"timestamp": datetime.datetime.utcnow()})
 	return str(assistsocial)
 
 
@@ -31,9 +35,6 @@ def saveForm():
 def listForm():	
 	client = pymongo.MongoClient(dburi)
 	db = client.test	
-	messages = db.messages
-	
-	cursor = messages.find() 
-	for item in cursor:
-	    print(item["message"])
-	return (str(cursor))
+	assistsocial = db.assistsocial
+	cursor = assistsocial.find().sort("timestamp", -1) 
+	return dumps(cursor)

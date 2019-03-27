@@ -10,6 +10,7 @@ function showLoginPage() {
 function showFormPage() {
   hideAllPages();
   $("#formPage").show();
+  listForm();
 }
 
 function showMapPage() {
