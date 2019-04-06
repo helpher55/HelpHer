@@ -1,15 +1,16 @@
-var fbtoken = "";
 
 function saveForm() {
-	
 	var abuso = document.getElementById("abusoField").value;
 	var quantasvezes = document.getElementById("vezesField").value;
 	var descricao = document.getElementById("descrevaTextArea").value;
 
-	var url = "/saveForm?abuso=" + abuso 
-					+ "&quantasvezes=" + quantasvezes 
-					+ "&descricao=" + descricao 
-					+ "&fbtoken=" + fbtoken;
+	var url = "/saveForm?"
+				+ "abuso=" + abuso 
+				+ "&quantasvezes=" + quantasvezes 
+				+ "&descricao=" + descricao 
+				+ "&login=" + login 
+				+ "&userid=" + userid 
+				+ "&token=" + token;
 	
 	$.post(url, {}, function(response) {
 		var itemid = response;
@@ -17,9 +18,11 @@ function saveForm() {
 	});
 }
 
-
 function listForm() {
-	var url = "/listForm?fbtoken=" + fbtoken;
+	var url = "/listForm?"
+				+ "login=" + login 
+				+ "&userid=" + userid 
+				+ "&token=" + token;
 	
 	$.post(url, {}, function(response) {
 		var list = "";

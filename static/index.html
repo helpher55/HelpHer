@@ -4,6 +4,7 @@
 	<meta http-equiv="Access-Control-Allow-Origin" content="*">
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+	<!--meta name="google-signin-client_id" content="517870087521-c65a3gl2p2n2u5hdb8scmgm4l1tninlq.apps.googleusercontent.com"-->
 	<title>:: HELP HER ::</title>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -12,15 +13,17 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+	<script src="js/facebook.js"></script>
+	<script async defer crossorigin="anonymous" 
+			src="https://connect.facebook.net/pt_BR/sdk.js"></script>
+	<script src="js/googlelogin.js"></script>
+	<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
 	<style>
-		@import url("static/css/main.css");
+		@import url("css/main.css");
 	</style>
-
-	<script src="static/js/facebook.js"></script>
-	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.2&appId=2023684611271384&autoLogAppEvents=1"></script>
-
-	<script src="static/js/main.js"></script>
-	<script src="static/js/form.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/form.js"></script>
 </head>
 
 <body>
@@ -49,9 +52,15 @@
 
 		<section id="loginPage">
 			<center>
-				<img src="static/marca_helpher.png" height="200" alt="Logo HelpHer" />
+				<img src="marca_helpher.png" height="200" alt="Logo HelpHer" />
+
 				<div id="fb-root"></div>
-				<div class="fb-login-button" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+				<div class="fb-login-button" data-size="large" data-button-type="login_with" 
+					data-auto-logout-link="true" data-use-continue-as="false" 
+					scope="public_profile,email" onlogin="checkLoginState();"></div>
+					
+				<br/>
+				<div id="google-signin2"></div>
 			</center>
 		</section>
 
@@ -63,16 +72,16 @@
 		<section id="formPage" style="display:none;">
 			<center>
 				<h1>Assistência Social</h1></center>
-			<div style="margin:20px;">
-				<label for="abusoField">Sofreu algum tipo de abuso?</label>
+			<div style="margin:30px;">
+				<label for="abusoField"><b>Sofreu algum tipo de abuso?</b></label>
 				<input id="abusoField" type="text">
 			</div>
-			<div style="margin:20px;">
-				<label for="vezesField">Foi a primeira vez?</label>
+			<div style="margin:30px;">
+				<label for="vezesField"><b>Foi a primeira vez?</b></label>
 				<input id="vezesField" type="text">
 			</div>
-			<div style="margin:20px;">
-				<label for="descrevaTextArea">Por favor, descreva aqui o problema:</label>
+			<div style="margin:30px;">
+				<label for="descrevaTextArea"><b>Por favor, descreva aqui o problema:</b></label>
 				<textarea id="descrevaTextArea"></textarea>
 			</div>
 			<br/>

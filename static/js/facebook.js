@@ -1,3 +1,4 @@
+
 window.fbAsyncInit = function() {
 	FB.init({
 		appId: '2023684611271384',
@@ -6,6 +7,13 @@ window.fbAsyncInit = function() {
 		version: 'v3.2'
 	});
 	FB.AppEvents.logPageView();
+
+	FB.getLoginStatus(function(response) {
+		statusChangeCallback(response);
+	});
+
+	FB.logout(function(response) {
+	});
 };
 
 (function(d, s, id) {
@@ -19,3 +27,25 @@ window.fbAsyncInit = function() {
 	fjs.parentNode.insertBefore(js, fjs);
 })
 (document, 'script', 'facebook-jssdk');
+
+
+function checkLoginState() {
+	FB.getLoginStatus(function(response) {
+	  statusChangeCallback(response);
+	});
+}
+
+function statusChangeCallback(response) {
+	if (response.status === 'connected') {
+		token = response.authResponse.accessToken;
+		userid = response.authResponse.userID;
+		login = "fb";
+		getFbUser();
+	  } 
+}
+
+function getFbUser() {
+    FB.api('/me?fields=id,email,name', function(response) {
+	  saveNewUser("fb", response.id, response.name, response.email);
+    });
+}
