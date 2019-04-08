@@ -5,9 +5,9 @@ function saveForm() {
 	var descricao = document.getElementById("descrevaTextArea").value;
 
 	var url = "/saveForm?"
-				+ "abuso=" + abuso 
-				+ "&quantasvezes=" + quantasvezes 
-				+ "&descricao=" + descricao 
+				+ "abuso=" + encodeURIComponent(abuso)
+				+ "&quantasvezes=" + encodeURIComponent(quantasvezes)
+				+ "&descricao=" + encodeURIComponent(descricao)
 				+ "&login=" + login 
 				+ "&userid=" + userid 
 				+ "&token=" + token;

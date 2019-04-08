@@ -1,6 +1,6 @@
 import requests
 import pymongo
-from dbconnect import *
+from py.dbconnect import *
 
 
 def verifyFbToken(fbtoken, fbuserid):
@@ -21,8 +21,7 @@ def verifyFbToken(fbtoken, fbuserid):
 
 def verifyGlToken(gltoken, gluserid):
 	tokeninfo_url = "https://oauth2.googleapis.com/tokeninfo?id_token=" + gltoken
-	userid = requests.get(tokeninfo_url).json()['sub']
-	print(userid)
+	userId = requests.get(tokeninfo_url).json()['sub']
 	if userId == gluserid:
 		return userId
 	else:

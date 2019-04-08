@@ -1,6 +1,7 @@
 from flask import Flask, Response, request, redirect
-from formCadastro import *
-from authentication import *
+from py.formCadastro import *
+from py.authentication import *
+from urllib.parse import unquote
 import datetime
 
 
@@ -31,9 +32,9 @@ def listForm():
 @app.route('/saveForm', methods=['POST'])
 def saveForm():
 	if authenticate() != 'error':
-		item = {"abuso": request.args.get("abuso"),
-				"quantasvezes": request.args.get("quantasvezes"),
-				"descricao": request.args.get("descricao"),
+		item = {"abuso": unquote(request.args.get("abuso")),
+				"quantasvezes": unquote(request.args.get("quantasvezes")),
+				"descricao": unquote(request.args.get("descricao")),
 				"userid": request.args.get("userid"),	
 				"timestamp": datetime.datetime.utcnow()}
 		return saveCadastro(item)

@@ -3,7 +3,7 @@ import pymongo, json
 #class dbConnect:
 
 def getConfig(configitem):
-	with open('config.json', 'r') as f:
+	with open('py/config.json', 'r') as f:
 		config = json.load(f)
 	return config[configitem]
 

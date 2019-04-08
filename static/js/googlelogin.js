@@ -18,8 +18,16 @@ function onSuccess(googleUser) {
     token = googleUser.getAuthResponse().id_token;
     userid = googleUser.getBasicProfile().getId();
     saveNewUser("gl", userid, googleUser.getBasicProfile().getName(), googleUser.getBasicProfile().getEmail());
+    document.getElementById("google-signin2").innerHTML = '<b><a href="#" onclick="googleSignOut();">DESLOGAR DO GOOGLE</a></b>';
 }
 
 function onFailure(error) {
     console.log(error);
+}
+
+function googleSignOut() {
+	var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+       document.getElementById("google-signin2").innerHTML = '<b>DESLOGADO DO GOOGLE</b>';
+    });
 }
