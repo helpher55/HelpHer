@@ -17,7 +17,8 @@ function onSuccess(googleUser) {
     login = "gl"
     token = googleUser.getAuthResponse().id_token;
     userid = googleUser.getBasicProfile().getId();
-    saveNewUser("gl", userid, googleUser.getBasicProfile().getName(), googleUser.getBasicProfile().getEmail());
+    username = googleUser.getBasicProfile().getName();
+    saveNewUser("gl", userid, username, googleUser.getBasicProfile().getEmail());
     document.getElementById("google-signin2").innerHTML = '<b><a href="#" onclick="googleSignOut();">DESLOGAR DO GOOGLE</a></b>';
 }
 

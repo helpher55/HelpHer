@@ -46,6 +46,7 @@ function statusChangeCallback(response) {
 
 function getFbUser() {
     FB.api('/me?fields=id,email,name', function(response) {
-	  saveNewUser("fb", response.id, response.name, response.email);
+			username = response.name;
+	  	saveNewUser("fb", response.id, response.name, response.email);
     });
 }

@@ -4,7 +4,7 @@
 	<meta http-equiv="Access-Control-Allow-Origin" content="*">
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-	<!--meta name="google-signin-client_id" content="517870087521-c65a3gl2p2n2u5hdb8scmgm4l1tninlq.apps.googleusercontent.com"-->
+	<meta name="google-signin-client_id" content="517870087521-c65a3gl2p2n2u5hdb8scmgm4l1tninlq.apps.googleusercontent.com">
 	<title>:: HELP HER ::</title>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -18,12 +18,14 @@
 			src="https://connect.facebook.net/pt_BR/sdk.js"></script>
 	<script src="js/googlelogin.js"></script>
 	<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9DyZkv4dWR35Pr4SCVNv4eN88WfAob6s" async defer></script> <!--&callback=initMap-->
 
+	<script src="js/main.js"></script>
+	<script src="js/form.js"></script>
+	<script src="js/map.js"></script>
 	<style>
 		@import url("css/main.css");
 	</style>
-	<script src="js/main.js"></script>
-	<script src="js/form.js"></script>
 </head>
 
 <body>
@@ -52,7 +54,7 @@
 
 		<section id="loginPage">
 			<center>
-				<img src="marca_helpher.png" height="200" alt="Logo HelpHer" />
+				<img src="logoapp.png" height="200" alt="Logo do App" />
 
 				<div id="fb-root"></div>
 				<div class="fb-login-button" data-size="large" data-button-type="login_with" 
@@ -67,11 +69,15 @@
 		<section id="mapPage" style="display:none;">
 			<center>
 				<h1>Mapa</h1></center>
+				<div id="map"></div>
 		</section>
 
 		<section id="formPage" style="display:none;">
 			<center>
 				<h1>Assistência Social</h1></center>
+			<div id="userfield" style="margin:30px;">
+				Usuário:<b> Não Logado</b>
+			</div>
 			<div style="margin:30px;">
 				<label for="abusoField"><b>Sofreu algum tipo de abuso?</b></label>
 				<input id="abusoField" type="text">

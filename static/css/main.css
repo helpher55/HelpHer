@@ -5,11 +5,6 @@ body{
 	height: 100%;
 }
 
-label {
-    font-size: 1rem !important;
-    color: rgba(0,0,0,0.87) !important;
-}
-
 .background{
 	background: rgba(0,146,68,1);
 	background: -moz-linear-gradient(75deg, rgba(250, 250, 250,1) 0%, rgba(238, 110, 115, 0.5) 100%);
@@ -22,4 +17,8 @@ label {
     background-image: linear-gradient(76deg, rgb(250, 250, 250) 0%, rgba(238, 110, 115, 0.5) 100%); 
     min-height: 100vh;
     overflow: auto;
+}
+
+#map {
+    height: 100%;
 }

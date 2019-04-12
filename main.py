@@ -16,6 +16,8 @@ def main():
 def saveNewUser():
 	item = {"login": request.args.get("login"),
 			"userid": request.args.get("userid"),
+			"latitude": request.args.get("latitude"),
+			"longitude": request.args.get("longitude"),
 			"name": request.args.get("username"),
 			"email": request.args.get("useremail"),
 			"timestamp": datetime.datetime.utcnow()}
@@ -24,21 +26,21 @@ def saveNewUser():
 
 @app.route('/listForm', methods=['POST'])
 def listForm():	
-	if authenticate() != 'error':
-		return listCadastro()
-	return 'error'
+	#if authenticate() != 'error':
+	authenticate()
+	return listCadastro()
 	
 
 @app.route('/saveForm', methods=['POST'])
 def saveForm():
-	if authenticate() != 'error':
-		item = {"abuso": unquote(request.args.get("abuso")),
-				"quantasvezes": unquote(request.args.get("quantasvezes")),
-				"descricao": unquote(request.args.get("descricao")),
-				"userid": request.args.get("userid"),	
-				"timestamp": datetime.datetime.utcnow()}
-		return saveCadastro(item)
-	return 'error'	
+	#if authenticate() != 'error':
+	authenticate()
+	item = {"abuso": unquote(request.args.get("abuso")),
+			"quantasvezes": unquote(request.args.get("quantasvezes")),
+			"descricao": unquote(request.args.get("descricao")),
+			"userid": request.args.get("userid"),	
+			"timestamp": datetime.datetime.utcnow()}
+	return saveCadastro(item)	
 
 
 def authenticate():
